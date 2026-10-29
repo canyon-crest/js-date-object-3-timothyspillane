@@ -98,6 +98,7 @@ function startTimer(){
 // STEP 13: Create a variable to track whether the timer is
 //          currently running (let running = true;)
 let running=true;
+startTimer();
 // STEP 14: Add a click event listener to the button (ID "myBtn").
 //          Inside the listener:
 //          a) If running is true:
