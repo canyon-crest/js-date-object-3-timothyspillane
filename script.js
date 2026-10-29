@@ -120,5 +120,4 @@ document.getElementById("myBtn").addEventListener('click', function(){
         startTime = new Date().getTime();
         running = true;
     }
-
 })
