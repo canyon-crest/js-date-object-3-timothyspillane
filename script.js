@@ -48,7 +48,7 @@ let d = new Date();
 // STEP 7: Get the month using .getMonth()
 //         IMPORTANT: .getMonth() returns 0–11 (January = 0)
 //         so you must add 1 to get the correct month number.
-let month = d.getMonth+1;
+let month = d.getMonth()+1;
 // STEP 8: Get the day of the month using .getDate()
 let today = d.getDate();
 // STEP 9: Get the year using .getFullYear()
@@ -56,6 +56,7 @@ let year = d.getFullYear();
 // STEP 10: Build the date string: month + "/" + day + "/" + year
 //          Display it in the element with ID "myDate"
 let date = month + "/" + today + "/" + year;
+document.getElementById("myDate").innerHTML = date;
 
 // ============================================
 //  PART 2: Elapsed Timer
@@ -66,7 +67,7 @@ let date = month + "/" + today + "/" + year;
 
 // STEP 11: Record the start time using new Date().getTime()
 //          This gives you the current time in milliseconds.
-let startTime = new Date.getTime()
+let startTime = new Date().getTime();
 
 // STEP 12: Create a variable to hold the timer ID (for stopping later).
 //          Use setInterval() with a delay of 10 milliseconds.
@@ -75,11 +76,12 @@ let startTime = new Date.getTime()
 //          b) Calculate elapsed seconds: (currentTime - startTime) / 1000
 //          c) Display the elapsed time using .toFixed(3)
 //             in the element with ID "myTimer"
-function interval(){
-setInterval(10);
-let currentTime = new Date().getTime();
-let elapsedTime = (currentTime-startTime)/1000
-document.getElementById("myTimer").innerHTML = elapsedTime.toFixed(3);
+let currentTime = 0;
+function timer(){
+    setInterval(10);
+    currentTime = new Date().getTime();
+    let elapsedTime = (currentTime-startTime)/1000
+    document.getElementById("myTimer").innerHTML = elapsedTime.toFixed(3);
 }
 // ============================================
 //  PART 3: Start/Stop Toggle Button
@@ -105,15 +107,18 @@ let running=true;
 //             - Start a new setInterval (same as STEP 12)
 //             - Change button innerHTML to "Stop"
 //             - Set running to true
-document.getElementById('myBtn').addEventListener('click', function(){
+document.getElementById("myBtn").addEventListener('click', function(){
     if(running == true)
     {
-        clearInterval(interval);
+        clearInterval(currentTime);
+        document.getElementById('myBtn').innerHTML="Start";
+        timer();
         running = false;
     } else if(running==false)
     {
-        interval=setInterval()
-        running=true
+        document.getElementById('myBtn').innerHTML="Stop";
+        startTime = new Date().getTime();
+        running = true;
     }
 
 })
