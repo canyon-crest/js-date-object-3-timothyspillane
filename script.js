@@ -50,12 +50,12 @@ let d = new Date();
 //         so you must add 1 to get the correct month number.
 let month = d.getMonth+1;
 // STEP 8: Get the day of the month using .getDate()
-let day = d.getDate();
+let today = d.getDate();
 // STEP 9: Get the year using .getFullYear()
 let year = d.getFullYear();
 // STEP 10: Build the date string: month + "/" + day + "/" + year
 //          Display it in the element with ID "myDate"
-let date = month + "/" + day + "/" + year;
+let date = month + "/" + today + "/" + year;
 
 // ============================================
 //  PART 2: Elapsed Timer
@@ -112,7 +112,7 @@ document.getElementById('myBtn').addEventListener('click', function(){
         running = false;
     } else if(running==false)
     {
-        interval=setInterval(time)
+        interval=setInterval()
         running=true
     }
 
